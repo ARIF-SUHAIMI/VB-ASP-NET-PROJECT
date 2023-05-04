@@ -24,9 +24,9 @@ Partial Class frmNewPass
     Private Sub InitializeComponent()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.tlpNewPass = New System.Windows.Forms.TableLayoutPanel()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPass2 = New System.Windows.Forms.TextBox()
         Me.lblPass1 = New System.Windows.Forms.Label()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtPass1 = New System.Windows.Forms.TextBox()
         Me.lblPass2 = New System.Windows.Forms.Label()
         Me.tlpNewPass.SuspendLayout()
         Me.SuspendLayout()
@@ -46,9 +46,9 @@ Partial Class frmNewPass
         '
         Me.tlpNewPass.ColumnCount = 1
         Me.tlpNewPass.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpNewPass.Controls.Add(Me.TextBox1, 0, 3)
+        Me.tlpNewPass.Controls.Add(Me.txtPass2, 0, 3)
         Me.tlpNewPass.Controls.Add(Me.lblPass1, 0, 0)
-        Me.tlpNewPass.Controls.Add(Me.txtEmail, 0, 1)
+        Me.tlpNewPass.Controls.Add(Me.txtPass1, 0, 1)
         Me.tlpNewPass.Controls.Add(Me.btnSave, 0, 4)
         Me.tlpNewPass.Controls.Add(Me.lblPass2, 0, 2)
         Me.tlpNewPass.Dock = System.Windows.Forms.DockStyle.Fill
@@ -63,13 +63,13 @@ Partial Class frmNewPass
         Me.tlpNewPass.Size = New System.Drawing.Size(422, 235)
         Me.tlpNewPass.TabIndex = 1
         '
-        'TextBox1
+        'txtPass2
         '
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Location = New System.Drawing.Point(3, 104)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(416, 22)
-        Me.TextBox1.TabIndex = 3
+        Me.txtPass2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtPass2.Location = New System.Drawing.Point(3, 104)
+        Me.txtPass2.Name = "txtPass2"
+        Me.txtPass2.Size = New System.Drawing.Size(416, 22)
+        Me.txtPass2.TabIndex = 3
         '
         'lblPass1
         '
@@ -82,13 +82,13 @@ Partial Class frmNewPass
         Me.lblPass1.Text = "Please Enter New Password"
         Me.lblPass1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'txtEmail
+        'txtPass1
         '
-        Me.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtEmail.Location = New System.Drawing.Point(3, 29)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(416, 22)
-        Me.txtEmail.TabIndex = 1
+        Me.txtPass1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtPass1.Location = New System.Drawing.Point(3, 29)
+        Me.txtPass1.Name = "txtPass1"
+        Me.txtPass1.Size = New System.Drawing.Size(416, 22)
+        Me.txtPass1.TabIndex = 1
         '
         'lblPass2
         '
@@ -118,7 +118,7 @@ Partial Class frmNewPass
     Friend WithEvents btnSave As Button
     Friend WithEvents tlpNewPass As TableLayoutPanel
     Friend WithEvents lblPass1 As Label
-    Friend WithEvents txtEmail As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtPass1 As TextBox
+    Friend WithEvents txtPass2 As TextBox
     Friend WithEvents lblPass2 As Label
 End Class

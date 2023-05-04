@@ -4,16 +4,22 @@ Imports System.Net.Mail
 Public Class frmRegister
     Dim clsda As New DataAccess
 
+    Private Sub frmRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        clear()
+    End Sub
+
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         Dim strError As String = checkEmpty()
         If strError.Trim <> "" Then
             MsgBox(strError)
             Exit Sub
+        ElseIf Not CheckDB() Then
+            MsgBox("Same user cannot be created again!")
         Else
             insertIntoTale()
             sendEmail()
+            Me.Close()
         End If
-
     End Sub
 
     Private Function checkEmpty() As String
@@ -41,9 +47,10 @@ Public Class frmRegister
         Dim strEmail = txtEmail.Text
         Dim strPass1 = txtPass1.Text
         Dim strPass2 = txtPass2.Text
+        Dim strHash As String = GetHash(strPass1)
         Dim strError As String = ""
 
-        Dim strSql As String = "INSERT INTO User_tb (UserName, Password) VALUES ('" & strName & "','" & strPass1 & "')"
+        Dim strSql As String = "INSERT INTO User_tb (UserName, Password, Email) VALUES ('" & strName & "','" & strHash & "', '" & strEmail & "')"
         strError = clsda.ExecuteNonQuery(strSql)
         If strError <> "" Then
             MsgBox(strError)
@@ -86,7 +93,30 @@ Public Class frmRegister
                 MsgBox(strError)
             End If
         End Try
+    End Sub
 
+    Private Function CheckDB() As Boolean
+        Dim strName As String = txtName.Text
+        Dim strEmail As String = txtEmail.Text
+        Dim strPass1 = txtPass1.Text
+        Dim strHash As String = GetHash(strPass1)
+        Dim strSql As String = ""
+        Dim dtData As DataTable
 
+        strSql = "SELECT * FROM User_tb WHERE UserName ='" & strName & "' OR Email ='" & strEmail & "'"
+        dtData = clsda.GetDataAsDataTable(strSql)
+
+        If dtData.Rows.Count <> 0 Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Private Sub clear()
+        txtEmail.Text = ""
+        txtName.Text = ""
+        txtPass1.Text = ""
+        txtPass2.Text = ""
     End Sub
 End Class

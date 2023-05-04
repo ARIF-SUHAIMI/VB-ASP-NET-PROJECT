@@ -7,23 +7,21 @@ Public Class frmLogin
     Dim clsda As New DataAccess()
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        Dim strName As String = txtUserName.Text.Trim
+        Dim strPass1 As String = txtPassword.Text.Trim
+        Dim strHash As String = GetHash(strPass1)
         Dim formTemp As New frmMainMenu()
-        Dim strSql As String = "SELECT * from User_tb WHERE UserName = '" & txtUserName.Text.Trim.Replace("'", "''") & "' AND Password = '" & txtPassword.Text.Trim.Replace("'", "''") & "'"
+        Dim strSql As String = "SELECT * from User_tb WHERE UserName = '" & txtUserName.Text.Trim.Replace("'", "''") & "' AND Password = '" & strHash.Trim.Replace("'", "''") & "'"
         Dim dtTemp = clsda.GetDataAsDataTable(strSql)
         'Dim strHash As String = GetHash(dtTemp.Rows(0).Item("UserName"))
 
         If (dtTemp.Rows.Count <> 0) Then
-            For i = 0 To dtTemp.Rows.Count - 1
-                If (txtUserName.Text.Trim() = dtTemp.Rows(i).Item("UserName")) Then
-                    MsgBox("Correct Username")
-                Else
-                    MsgBox("Wrong Username")
-                End If
-            Next
+            Me.Hide()
+            formTemp.ShowDialog()
+            Me.Close()
         Else
             MsgBox("Wrong Username / Password")
         End If
-        'formTemp.Show()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

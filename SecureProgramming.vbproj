@@ -108,6 +108,12 @@
     <Compile Include="frmNewPass.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmValidate.Designer.vb">
+      <DependentUpon>frmValidate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmValidate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mdlCrypto.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewPass.resx">
       <DependentUpon>frmNewPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidate.resx">
+      <DependentUpon>frmValidate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
