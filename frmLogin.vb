@@ -29,4 +29,18 @@ Public Class frmLogin
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+
+    Private Sub btnRecovery_Click(sender As Object, e As EventArgs) Handles btnRecovery.Click
+        Me.Hide()
+
+        Dim frmRecover As New frmRecoverPass()
+
+        frmRecover.ShowDialog()
+
+        Me.Close()
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        frmRegister.ShowDialog()
+    End Sub
 End Class

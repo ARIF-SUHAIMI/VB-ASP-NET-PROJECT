@@ -90,6 +90,24 @@
     <Compile Include="frmMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRecoverPass.Designer.vb">
+      <DependentUpon>frmRecoverPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecoverPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegister.Designer.vb">
+      <DependentUpon>frmRegister.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegister.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewPass.Designer.vb">
+      <DependentUpon>frmNewPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="mdlCrypto.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -114,6 +132,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecoverPass.resx">
+      <DependentUpon>frmRecoverPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegister.resx">
+      <DependentUpon>frmRegister.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewPass.resx">
+      <DependentUpon>frmNewPass.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
