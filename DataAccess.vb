@@ -34,17 +34,24 @@ Public Class DataAccess
         Return dataTable
     End Function
 
-    Public Sub ExecuteNonQuery(query As String)
-        Using connection As New SqlConnection(connectionString)
-            connection.Open()
+    Public Function ExecuteNonQuery(query As String)
+        Dim strError As String = ""
+        Try
+            Using connection As New SqlConnection(connectionString)
+                connection.Open()
 
-            Using command As New SqlCommand(query, connection)
-                ' Execute the SQL query that does not return any data
-                command.ExecuteNonQuery()
+                Using command As New SqlCommand(query, connection)
+                    ' Execute the SQL query that does not return any data
+                    command.ExecuteNonQuery()
+                End Using
+
+                connection.Close()
             End Using
+        Catch ex As Exception
+            strError = ex.Message
+        End Try
 
-            connection.Close()
-        End Using
-    End Sub
+        Return strError
+    End Function
 
 End Class
