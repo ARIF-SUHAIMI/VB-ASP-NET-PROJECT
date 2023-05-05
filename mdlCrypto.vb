@@ -20,4 +20,18 @@ Module mdlCrypto
             Return hashString.ToString()
         End Using
     End Function
+
+    Public Function GenerateSalt() As String
+        ' Define the pool of characters to choose from
+        Dim characters As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}|::<>?"
+
+        ' Generate a random 6-digit phrase by choosing characters from the pool
+        Dim phrase As String = ""
+        Dim rand As New Random()
+        For i As Integer = 1 To 6
+            phrase &= characters(rand.Next(0, characters.Length))
+        Next
+
+        Return phrase
+    End Function
 End Module

@@ -79,7 +79,7 @@ Public Class frmRecoverPass
         Dim strSql As String = ""
         Dim dtData As DataTable
 
-        strSql = "SELECT * FROM User_tb WHERE Email ='" & strEmail & "'"
+        strSql = "SELECT * FROM User_tb WHERE Email ='" & strEmail.Trim.Replace("'", "''") & "'"
         dtData = clsda.GetDataAsDataTable(strSql)
 
         If dtData.Rows.Count = 0 Then
