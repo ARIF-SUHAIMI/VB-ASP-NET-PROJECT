@@ -25,6 +25,16 @@ Public Class frmNewPass
         Dim strPass1 As String = txtPass1.Text
         Dim strPass2 As String = txtPass2.Text
 
+        If strPass1.Trim = "" OrElse strPass2.Trim = "" Then
+            MsgBox("Please fill in all fileds")
+            Return False
+        End If
+
+        If strPass1.Trim.Contains("'") OrElse strPass2.Trim.Contains("'") Then
+            MsgBox("Password cannot contain special characters")
+            Return False
+        End If
+
         If strPass1.Trim <> strPass2.Trim Then
             MsgBox("Password does not match")
             Return False
@@ -34,11 +44,12 @@ Public Class frmNewPass
     End Function
 
     Private Function updateTable()
-        Dim strPass1 As String = txtPass1.Text
+        Dim strSalt As String = GenerateSalt()
+        Dim strPass1 As String = txtPass1.Text & strSalt
         Dim strHash As String = GetHash(strPass1)
         Dim strError As String = ""
 
-        Dim strSql As String = "UPDATE User_tb SET Password = '" & strHash & "' WHERE ID = " & intRowId & ""
+        Dim strSql As String = "UPDATE User_tb SET Password = '" & strHash & "', salt = '" & strSalt & "' WHERE ID = " & intRowId & ""
         strError = clsda.ExecuteNonQuery(strSql)
 
         If strError.Trim <> "" Then

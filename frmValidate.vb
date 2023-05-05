@@ -12,11 +12,15 @@
     End Sub
 
     Private Function checkPasscode() As Boolean
-        If intRandom <> Int(txtConfirm.Text) Then
-            MsgBox("Passcode does not match. Please check again!")
-            Return False
-        Else
-            Return True
-        End If
+        Try
+            If intRandom <> Int(txtConfirm.Text) Then
+                MsgBox("Passcode does not match. Please check again!")
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Function
 End Class

@@ -9,11 +9,22 @@ Public Class frmLogin
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Dim strName As String = txtUserName.Text.Trim
         Dim strPass1 As String = txtPassword.Text.Trim
-        Dim strHash As String = GetHash(strPass1)
         Dim formTemp As New frmMainMenu()
+        Dim strSqlSalt As String = ""
+        Dim strSalt As String = ""
+        Dim temp = GetHash(strPass1)
+
+        strSqlSalt = "SELECT * FROM User_tb where UserName = '" & strName.Trim.Replace("'", "''") & "'"
+        Dim dtSalt = clsda.GetDataAsDataTable(strSqlSalt)
+        If dtSalt.Rows.Count = 1 Then
+            strSalt = dtSalt.Rows(0).Item("salt")
+        End If
+
+        strPass1 = strPass1 & strSalt
+        Dim strHash As String = GetHash(strPass1)
+
         Dim strSql As String = "SELECT * from User_tb WHERE UserName = '" & txtUserName.Text.Trim.Replace("'", "''") & "' AND Password = '" & strHash.Trim.Replace("'", "''") & "'"
         Dim dtTemp = clsda.GetDataAsDataTable(strSql)
-        'Dim strHash As String = GetHash(dtTemp.Rows(0).Item("UserName"))
 
         If (dtTemp.Rows.Count <> 0) Then
             Me.Hide()

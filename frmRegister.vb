@@ -38,6 +38,9 @@ Public Class frmRegister
         If (strPass1.Trim = "" OrElse strPass2.Trim = "") OrElse strPass1 <> strPass2 Then
             strError += "Please key in password" & vbCrLf
         End If
+        If strName.Contains("'") OrElse strEmail.Contains("'") OrElse strPass1.Contains("'") OrElse strPass2.Contains("'") Then
+            strError += "Fields cannot contain special characters"
+        End If
 
         Return strError
     End Function
@@ -45,12 +48,13 @@ Public Class frmRegister
     Private Sub insertIntoTale()
         Dim strName = txtName.Text
         Dim strEmail = txtEmail.Text
-        Dim strPass1 = txtPass1.Text
+        Dim strSalt = GenerateSalt()
+        Dim strPass1 = txtPass1.Text & strSalt
         Dim strPass2 = txtPass2.Text
         Dim strHash As String = GetHash(strPass1)
         Dim strError As String = ""
 
-        Dim strSql As String = "INSERT INTO User_tb (UserName, Password, Email) VALUES ('" & strName & "','" & strHash & "', '" & strEmail & "')"
+        Dim strSql As String = "INSERT INTO User_tb (UserName, Password, Email, salt) VALUES ('" & strName & "','" & strHash & "', '" & strEmail & "', '" & strSalt & "')"
         strError = clsda.ExecuteNonQuery(strSql)
         If strError <> "" Then
             MsgBox(strError)

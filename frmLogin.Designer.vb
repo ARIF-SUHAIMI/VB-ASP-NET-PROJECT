@@ -62,17 +62,17 @@ Partial Class frmLogin
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.66292!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.54682!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.73034!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1207, 535)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1509, 669)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnCancel.Location = New System.Drawing.Point(613, 285)
+        Me.btnCancel.Location = New System.Drawing.Point(764, 355)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(9)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(584, 86)
+        Me.btnCancel.Size = New System.Drawing.Size(735, 112)
         Me.btnCancel.TabIndex = 5
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
@@ -80,19 +80,19 @@ Partial Class frmLogin
         'txtUserName
         '
         Me.txtUserName.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUserName.Location = New System.Drawing.Point(610, 182)
+        Me.txtUserName.Location = New System.Drawing.Point(761, 231)
         Me.txtUserName.Margin = New System.Windows.Forms.Padding(6)
         Me.txtUserName.Name = "txtUserName"
-        Me.txtUserName.Size = New System.Drawing.Size(590, 22)
+        Me.txtUserName.Size = New System.Drawing.Size(741, 22)
         Me.txtUserName.TabIndex = 0
         '
         'lblUsername
         '
         Me.lblUsername.AutoSize = True
         Me.lblUsername.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblUsername.Location = New System.Drawing.Point(4, 169)
+        Me.lblUsername.Location = New System.Drawing.Point(4, 211)
         Me.lblUsername.Name = "lblUsername"
-        Me.lblUsername.Size = New System.Drawing.Size(596, 49)
+        Me.lblUsername.Size = New System.Drawing.Size(747, 62)
         Me.lblUsername.TabIndex = 1
         Me.lblUsername.Text = "User Name"
         Me.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -101,9 +101,9 @@ Partial Class frmLogin
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblPassword.Location = New System.Drawing.Point(4, 219)
+        Me.lblPassword.Location = New System.Drawing.Point(4, 274)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(596, 56)
+        Me.lblPassword.Size = New System.Drawing.Size(747, 71)
         Me.lblPassword.TabIndex = 2
         Me.lblPassword.Text = "Password"
         Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -111,20 +111,21 @@ Partial Class frmLogin
         'txtPassword
         '
         Me.txtPassword.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPassword.Location = New System.Drawing.Point(610, 236)
+        Me.txtPassword.Location = New System.Drawing.Point(761, 298)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(6)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(590, 22)
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtPassword.Size = New System.Drawing.Size(741, 22)
         Me.txtPassword.TabIndex = 3
         '
         'btnLogin
         '
         Me.btnLogin.BackColor = System.Drawing.Color.Lime
         Me.btnLogin.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnLogin.Location = New System.Drawing.Point(10, 285)
+        Me.btnLogin.Location = New System.Drawing.Point(10, 355)
         Me.btnLogin.Margin = New System.Windows.Forms.Padding(9)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(584, 86)
+        Me.btnLogin.Size = New System.Drawing.Size(735, 112)
         Me.btnLogin.TabIndex = 4
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -139,7 +140,7 @@ Partial Class frmLogin
         Me.PictureBox1.Location = New System.Drawing.Point(2, 2)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(1)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1203, 165)
+        Me.PictureBox1.Size = New System.Drawing.Size(1505, 207)
         Me.PictureBox1.TabIndex = 6
         Me.PictureBox1.TabStop = False
         '
@@ -148,9 +149,9 @@ Partial Class frmLogin
         Me.btnRecovery.BackColor = System.Drawing.SystemColors.Highlight
         Me.TableLayoutPanel1.SetColumnSpan(Me.btnRecovery, 2)
         Me.btnRecovery.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnRecovery.Location = New System.Drawing.Point(4, 451)
+        Me.btnRecovery.Location = New System.Drawing.Point(4, 564)
         Me.btnRecovery.Name = "btnRecovery"
-        Me.btnRecovery.Size = New System.Drawing.Size(1199, 80)
+        Me.btnRecovery.Size = New System.Drawing.Size(1501, 101)
         Me.btnRecovery.TabIndex = 7
         Me.btnRecovery.Text = "Recover Password"
         Me.btnRecovery.UseVisualStyleBackColor = False
@@ -160,9 +161,9 @@ Partial Class frmLogin
         Me.btnRegister.BackColor = System.Drawing.Color.Yellow
         Me.TableLayoutPanel1.SetColumnSpan(Me.btnRegister, 2)
         Me.btnRegister.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnRegister.Location = New System.Drawing.Point(4, 384)
+        Me.btnRegister.Location = New System.Drawing.Point(4, 480)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(1199, 60)
+        Me.btnRegister.Size = New System.Drawing.Size(1501, 77)
         Me.btnRegister.TabIndex = 8
         Me.btnRegister.Text = "Register Account"
         Me.btnRegister.UseVisualStyleBackColor = False
@@ -173,7 +174,7 @@ Partial Class frmLogin
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1207, 535)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"

@@ -68,6 +68,7 @@ Partial Class frmNewPass
         Me.txtPass2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtPass2.Location = New System.Drawing.Point(3, 104)
         Me.txtPass2.Name = "txtPass2"
+        Me.txtPass2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPass2.Size = New System.Drawing.Size(416, 22)
         Me.txtPass2.TabIndex = 3
         '
@@ -87,6 +88,7 @@ Partial Class frmNewPass
         Me.txtPass1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtPass1.Location = New System.Drawing.Point(3, 29)
         Me.txtPass1.Name = "txtPass1"
+        Me.txtPass1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPass1.Size = New System.Drawing.Size(416, 22)
         Me.txtPass1.TabIndex = 1
         '
