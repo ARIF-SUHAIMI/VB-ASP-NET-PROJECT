@@ -3,7 +3,7 @@
 Public Class StripePaymentProcessor
     Private ReadOnly stripeApiKey As String = "sk_test_51KNBEbGa2z685qyKm9ieOvexY37LeNIPdu1SgeGmL0nB9RLwbgXH8kJRw1nWEY3MzSOA2aBBvRxILNsFFEFkM0jZ00IZNrPosl"
 
-    Public Sub ProcessPayment(ByVal cardNumber As String, ByVal expiryMonth As Integer, ByVal expiryYear As Integer, ByVal amount As Decimal)
+    Public Sub ProcessPayment(ByVal cardNumber As String, ByVal expiryMonth As Integer, ByVal expiryYear As Integer, ByVal amount As Double)
         ' Set your Stripe API key
         StripeConfiguration.ApiKey = stripeApiKey
 
