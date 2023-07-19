@@ -3,6 +3,7 @@ Imports System.Text
 Imports System.Net
 Imports System.Net.Http
 Imports System.Web
+Imports System.IO
 
 Module mdlCrypto
     Public Function GetHash(ByVal input As String) As String
@@ -82,4 +83,45 @@ Module mdlCrypto
         ' Use the HttpUtility.HtmlEncode method to encode the input
         Return WebUtility.HtmlEncode(input)
     End Function
+
+    Private Function EncryptData(data As String, key As String, iv As String) As String
+        Using aesAlg As Aes = Aes.Create()
+            aesAlg.Key = Encoding.UTF8.GetBytes(key)
+            aesAlg.IV = Encoding.UTF8.GetBytes(iv)
+
+            Dim encryptor As ICryptoTransform = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV)
+
+            Using msEncrypt As New MemoryStream()
+                Using csEncrypt As New CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write)
+                    Using swEncrypt As New StreamWriter(csEncrypt)
+                        swEncrypt.Write(data)
+                    End Using
+                    Dim encryptedBytes As Byte() = msEncrypt.ToArray()
+                    Return Convert.ToBase64String(encryptedBytes)
+                End Using
+            End Using
+        End Using
+    End Function
+
+    Public Sub GenerateAESKey()
+        Using aes As New AesCryptoServiceProvider()
+            ' Generate a new AES key
+            aes.GenerateKey()
+
+            ' Get the generated key
+            Dim aesKey As Byte() = aes.Key
+
+            ' Save the key to a file or store it in a variable for further use.
+            ' You can also convert it to a base64 string for storage or transmission.
+
+            ' Save key to a file
+            Dim keyFilePath As String = "aes_key.txt"
+            SaveKeyToFile(aesKey, keyFilePath)
+        End Using
+    End Sub
+
+    Public Sub SaveKeyToFile(key As Byte(), filePath As String)
+        ' Save the key to the specified file
+        System.IO.File.WriteAllBytes(filePath, key)
+    End Sub
 End Module

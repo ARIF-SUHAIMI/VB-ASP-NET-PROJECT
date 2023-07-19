@@ -7,6 +7,7 @@ Public Class frmLogin
     Dim clsda As New DataAccess()
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        GenerateAESKey()
         Dim strName As String = txtUserName.Text.Trim
         Dim strPass1 As String = txtPassword.Text.Trim
         Dim formTemp As New frmMainMenu()
